@@ -237,6 +237,10 @@ type (
 		Precision *int
 	}
 
+	TSRangeType struct {
+		T string
+	}
+
 	// JSONType represents a JSON type.
 	JSONType struct {
 		T string
@@ -316,6 +320,7 @@ func (*RawExpr) expr() {}
 func (*BoolType) typ()        {}
 func (*EnumType) typ()        {}
 func (*TimeType) typ()        {}
+func (*TSRangeType) typ()     {}
 func (*JSONType) typ()        {}
 func (*FloatType) typ()       {}
 func (*StringType) typ()      {}

@@ -342,15 +342,17 @@ const (
 	TypePolygon = "polygon"
 	TypePoint   = "point"
 
-	TypeDate          = "date"
-	TypeTime          = "time"   // time without time zone
-	TypeTimeTZ        = "timetz" // time with time zone
-	TypeTimeWTZ       = "time with time zone"
-	TypeTimeWOTZ      = "time without time zone"
-	TypeTimestamp     = "timestamp" // timestamp without time zone
-	TypeTimestampTZ   = "timestamptz"
-	TypeTimestampWTZ  = "timestamp with time zone"
-	TypeTimestampWOTZ = "timestamp without time zone"
+	TypeDate             = "date"
+	TypeTime             = "time"   // time without time zone
+	TypeTimeTZ           = "timetz" // time with time zone
+	TypeTimeWTZ          = "time with time zone"
+	TypeTimeWOTZ         = "time without time zone"
+	TypeTimestamp        = "timestamp" // timestamp without time zone
+	TypeTimestampTZ      = "timestamptz"
+	TypeTimestampWTZ     = "timestamp with time zone"
+	TypeTimestampWOTZ    = "timestamp without time zone"
+	TypeTimestampRange   = "tsrange"
+	TypeTimestampRangeTZ = "tstzrange"
 
 	TypeDouble = "double precision"
 	TypeReal   = "real"

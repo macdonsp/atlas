@@ -86,6 +86,8 @@ func FormatType(t schema.Type) (string, error) {
 		if p := t.Precision; p != nil && *p != defaultTimePrecision && strings.HasPrefix(f, "time") {
 			f += fmt.Sprintf("(%d)", *p)
 		}
+	case *schema.TSRangeType:
+		f = strings.ToLower(t.T)
 	case *schema.FloatType:
 		switch f = strings.ToLower(t.T); f {
 		case TypeFloat4:
@@ -213,6 +215,8 @@ func columnType(c *columnDesc) (schema.Type, error) {
 			p = int(*c.timePrecision)
 		}
 		typ = &schema.TimeType{T: t, Precision: &p}
+	case TypeTimestampRange, TypeTimestampRangeTZ:
+		typ = &schema.TSRangeType{T: t}
 	case TypeInterval:
 		p := defaultTimePrecision
 		if c.timePrecision != nil {

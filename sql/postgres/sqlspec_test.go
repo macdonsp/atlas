@@ -52,6 +52,12 @@ table "table" {
 		type    = time
 		default = sql("current_time")
 	}
+	column "duration" {
+		type = tsrange
+	}
+	column "duration_with_tz" {
+		type = tstzrange
+	}
 	primary_key {
 		columns = [table.table.column.col]
 	}
@@ -184,6 +190,18 @@ enum "account_type" {
 						Type: typeTime(TypeTime, 6),
 					},
 					Default: &schema.RawExpr{X: "current_time"},
+				},
+				{
+					Name: "duration",
+					Type: &schema.ColumnType{
+						Type: &schema.TSRangeType{T: "tsrange"},
+					},
+				},
+				{
+					Name: "duration_with_tz",
+					Type: &schema.ColumnType{
+						Type: &schema.TSRangeType{T: "tstzrange"},
+					},
 				},
 			},
 			Attrs: []schema.Attr{
